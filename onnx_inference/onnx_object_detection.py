@@ -16,15 +16,16 @@ class OnnxObjectDetection(OnnxBase):
     input_name: str = None
     output_name: str = None
 
-    def __init__(self, weight_path: str, classnames: List[str] = None) -> None:
+    def __init__(self, weight_path: str, classnames: List[str] = None, cuda: bool = False) -> None:
         """Initialize class.
 
         Args:
             weight_path: Location of the weight file
         """
-        super().__init__(weight_path=weight_path)
+        super().__init__(weight_path=weight_path, cuda=cuda)
         self.weight_path: str = weight_path
         self.classnames = classnames
+        self.cuda = cuda
 
     def predict_object_detection(self, input_data: np.ndarray) -> Union[np.ndarray, None]:
         """OCR model predict code, independent of weight format.

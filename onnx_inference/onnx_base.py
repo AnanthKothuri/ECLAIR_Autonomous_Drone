@@ -15,20 +15,20 @@ class OnnxBase:
     input_name: str = None
     output_name: str = None
 
-    def __init__(self, weight_path: str) -> None:
+    def __init__(self, weight_path: str, cuda: bool = False) -> None:
         """Initialize class.
 
         Args:
             weight_path: Location of the weight file
         """
         self.weight_path: str = weight_path
+        self.cuda = cuda
 
         if weight_path.__contains__("onnx"):
             logger.info(f"Loading ONNX model from: {weight_path}")
 
-            # providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if torch.cuda.is_available() else [
-            #     'CPUExecutionProvider']
-            providers = ['CPUExecutionProvider']
+            providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if self.cuda else [
+                'CPUExecutionProvider']
             self.session = ort.InferenceSession(self.weight_path, providers=providers)
 
             # Model settings

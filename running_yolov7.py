@@ -9,6 +9,14 @@ import logging as logger
 from datetime import datetime
 import numpy as np
 import cv2
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-p", "--modelPath", required=True, 
+	help="Path to the inputted onnx model file")
+ap.add_argument("-c", "--cuda", required=True,
+	help="True if CUDA is available, false otherwise")
+args = vars(ap.parse_args())
 
 yolo_classnames = ['person', 'bicycle', 'car']
 yolo_colors: Dict[str, Tuple[int, int, int]] = {cls_name: [random.randint(0, 255) for _ in range(3)] for k, cls_name in
@@ -17,9 +25,14 @@ total = 0
 (W, H) = (None, None)
 
 cam = cv2.VideoCapture(1)
-yolo_path = "models/yolov7-tiny.onnx"
-# yolo_path = "models/yolov5n.onnx"
-yolo = OnnxObjectDetection(weight_path=yolo_path, classnames=yolo_classnames)
+yolo_path = args["modelPath"]
+
+useCUDA = None
+if args["cuda"] == "True":
+	useCUDA = True
+elif args["cuda"] == "False":
+	useCUDA = False
+yolo = OnnxObjectDetection(weight_path=yolo_path, classnames=yolo_classnames, cuda=useCUDA)
 IMAGE_SIZE = (640, 640)
 
 # start looping over all the frames
