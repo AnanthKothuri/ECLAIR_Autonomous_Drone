@@ -33,7 +33,6 @@ while True:
 
 	#frame = imutils.resize(frame, width=IMAGE_SIZE, height=IMAGE_SIZE)
 	frame = cv2.resize(frame, IMAGE_SIZE, interpolation = cv2.INTER_AREA)
-	print(frame.shape)
 
 	# grab the current timestamp and draw it on the frame
 	timestamp = datetime.now()
