@@ -7,6 +7,8 @@ Much of the code was modified from https://github.com/AnweshCR7/onnx-inference-y
 
 ## Yolo with Onnx
 To start, navigate to the yolo_with_onnx directory. Run the install_dependencies.sh shell script to install dependencies (hopefully I didn't miss anything). 
+
 Run the command "python3 running_yolov7.py -p models/yolov7-tiny.onnx -c False"
+
     - the -p argument is the path to the model file
     - the -c argument is true if there is a GPU present
