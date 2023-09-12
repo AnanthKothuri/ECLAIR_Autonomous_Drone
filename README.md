@@ -10,5 +10,5 @@ To start, navigate to the yolo_with_onnx directory. Run the install_dependencies
 
 Run the command "python3 running_yolov7.py -p models/yolov7-tiny.onnx -c False"
 
-    - the -p argument is the path to the model file
-    - the -c argument is true if there is a GPU present
+The -p argument is the path to the model file
+The -c argument is true if there is a GPU present
