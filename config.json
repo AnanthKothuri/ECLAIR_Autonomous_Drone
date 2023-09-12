@@ -1,0 +1,20 @@
+{
+
+	"frame_count": 32,
+
+	"yolo_path": "yolo-coco",
+
+	"confidence": 0.5,
+
+	"threshold": 0.3,
+
+	"unauthorized_zone": [[50, 0, 350, 400]],
+
+	"consider": ["person", "car", "truck", "bicycle", "motorbike"],
+
+	"codec": "MJPG",
+	"fps": 10,
+	"output_path": "output",
+
+	"buffer_size": 32
+}
