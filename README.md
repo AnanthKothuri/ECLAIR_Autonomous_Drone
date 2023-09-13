@@ -14,3 +14,4 @@ The -p argument is the path to the model file
 The -c argument is true if there is a GPU present
 
 Run deep_sparse_benchmark.sh to get a benchmark performance of deep-sparse vs yolov8 on the machine.
+DeepSparse code taken from https://neuralmagic.com/blog/yolov8-detection-10x-faster-with-deepsparse-500-fps-on-a-cpu/
