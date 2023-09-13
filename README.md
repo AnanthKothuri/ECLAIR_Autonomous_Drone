@@ -12,3 +12,5 @@ Run the command "python3 running_yolov7.py -p models/yolov7-tiny.onnx -c False"
 
 The -p argument is the path to the model file
 The -c argument is true if there is a GPU present
+
+Run deep_sparse_benchmark.sh to get a benchmark performance of deep-sparse vs yolov8 on the machine.
