@@ -1,1 +1,1 @@
-pip3 install random numpy opencv-python onnxruntime pydantic
+pip3 install numpy opencv-python onnxruntime pydantic
